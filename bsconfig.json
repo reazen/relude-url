@@ -1,0 +1,33 @@
+{
+  "name": "relude-url",
+  "version": "0.1.0",
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "__tests__",
+      "subdirs": true,
+      "type": "dev"
+    }
+  ],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "namespace": false,
+  "bs-dependencies": [
+    "bs-abstract",
+    "relude",
+    "relude-parse"
+  ],
+  "bs-dev-dependencies": [
+    "@glennsl/bs-jest"
+  ],
+  "warnings": {
+    "error": "+101"
+  },
+  "refmt": 3
+}

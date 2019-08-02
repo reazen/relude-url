@@ -1,0 +1,41 @@
+{
+  "name": "relude-url",
+  "version": "0.1.0",
+  "description": "URL utilities with Relude",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andywhite37/relude-url.git"
+  },
+  "keywords": [
+    "URL",
+    "Relude"
+  ],
+  "author": "Reazen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andywhite37/relude-url/issues"
+  },
+  "homepage": "https://github.com/andywhite37/relude-url#readme",
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-world",
+    "cleanbuild": "npm run clean && npm run build",
+    "test": "jest",
+    "cleantest": "npm run cleanbuild && npm run test",
+    "coverage": "jest --coverage",
+    "cleancoverage": "npm run cleanbuild && npm run coverage",
+    "watch": "bsb -make-world -w"
+  },
+  "peerDependencies": {
+    "bs-abstract": "~0.17.0",
+    "relude": "~0.19.0",
+    "relude-parse": "~0.4.0"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "~0.4.8",
+    "bs-abstract": "~0.17.0",
+    "bs-platform": "~5.0.6",
+    "relude": "~0.19.0",
+    "relude-parse": "~0.4.0"
+  }
+}
