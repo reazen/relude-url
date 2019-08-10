@@ -11,3 +11,10 @@ let parser: P.t(t) =
   <#> Relude.Nel.toList
   <#> Relude.List.String.join
   <#> make;
+
+let show = (Username(str)) => str;
+
+module Show: BsAbstract.Interface.SHOW with type t = t = {
+  type nonrec t = t;
+  let show = show;
+};

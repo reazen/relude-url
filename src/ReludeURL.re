@@ -10,6 +10,6 @@ module QueryKey = ReludeURL_QueryKey;
 module QueryParam = ReludeURL_QueryParam;
 module QueryValue = ReludeURL_QueryValue;
 module Scheme = ReludeURL_Scheme;
-module URL = ReludeURL_URL;
+module URI = ReludeURL_URI;
 module UserInfo = ReludeURL_UserInfo;
 module Username = ReludeURL_Username;

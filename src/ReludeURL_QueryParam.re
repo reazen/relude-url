@@ -11,7 +11,24 @@ type t = {
 
 let make = (key, values) => {key, values};
 
-let makeOne = (key, value) => {key, values: [value]};
+let make1 = (key, value) => {key, values: [value]};
+
+let fromTuple = ((key, values)) => {key, values};
+
+let fromTuple1 = ((key, value)) => {key, values: [value]};
 
 let parser: P.t(t) =
-  makeOne <$> QueryKey.parser <* P.str("=") <*> QueryValue.parser;
+  make1 <$> QueryKey.parser <* P.str("=") <*> QueryValue.parser;
+
+let show = ({key, values}) => {
+  values
+  |> Relude.List.map(value =>
+       QueryKey.show(key) ++ "=" ++ QueryValue.show(value)
+     )
+  |> Relude.List.String.joinWith("&");
+};
+
+module Show: BsAbstract.Interface.SHOW with type t = t = {
+  type nonrec t = t;
+  let show = show;
+};

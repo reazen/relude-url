@@ -11,3 +11,10 @@ let parser: P.t(t) =
   <#> Relude.List.String.join
   <#> make
   <?> "Expected URL scheme";
+
+let show = (Scheme(str)) => str;
+
+module Show: BsAbstract.Interface.SHOW with type t = t = {
+  type nonrec t = t;
+  let show = show;
+};

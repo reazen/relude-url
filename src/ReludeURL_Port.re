@@ -7,3 +7,10 @@ type t =
 let make = i => Port(i);
 
 let parser = P.anyUnsignedInt <#> make;
+
+let show = (Port(i)) => Relude.Int.show(i);
+
+module Show: BsAbstract.Interface.SHOW with type t = t = {
+  type nonrec t = t;
+  let show = show;
+};
