@@ -3,6 +3,7 @@ node_modules/
 
 # OCaml
 .merlin
+.bsb.lock
 
 # Project files
 lib/

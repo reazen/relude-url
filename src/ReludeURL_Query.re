@@ -125,34 +125,70 @@ module QueryMap: QUERY_MAP = {
 type t =
   | Query(QueryMap.t);
 
+/**
+ * Creates a query from a QueryMap
+ */
 let make: QueryMap.t => t = map => Query(map);
 
+/**
+ * Creates an empty query map
+ */
 let empty: unit => t = () => Query(QueryMap.make(~hintSize=0));
 
+/**
+ * Creates a Query map from a list of QueryParam (key/value pairs)
+ */
 let fromList: list(QueryParam.t) => t =
   params => Query(QueryMap.fromList(params));
 
+/**
+ * Creates a Query map from an array of QueryParam (key/value pairs)
+ */
 let fromArray: array(QueryParam.t) => t =
   params => Query(QueryMap.fromArray(params));
 
+/**
+ * Gets the list of values for the given query key
+ */
 let get: (QueryKey.t, t) => option(list(QueryValue.t)) =
   (key, Query(map)) => {
     map |> QueryMap.get(key);
   };
 
+/**
+ * Gets the first value for the given query key
+ */
+let getFirst: (QueryKey.t, t) => option(QueryValue.t) =
+  (key, map) => get(key, map) |> Relude.Option.flatMap(Relude.List.head);
+
+/**
+ * Sets (overwrites) the list of values for the given query key
+ */
 let set: (QueryParam.t, t) => t =
   ({key, values}, Query(map)) => Query(map |> QueryMap.set(key, values));
 
+/**
+ * Appends the value for the given query key to any existing values for the key
+ */
 let append: (QueryParam.t, t) => t =
   ({key, values}, Query(map)) =>
     Query(map |> QueryMap.append(key, values));
 
+/**
+ * Appends a list of values for the given query key to any existing values for the key
+ */
 let appendKeyValues: (QueryKey.t, list(QueryValue.t), t) => t =
   (key, values, query) => append({key, values}, query);
 
+/**
+ * Appends a single value for the given query key to any existing values for the key
+ */
 let appendKeyValue: (QueryKey.t, QueryValue.t, t) => t =
   (key, value, query) => append({key, values: [value]}, query);
 
+/**
+ * Removes a key and associated values from the query map
+ */
 let remove: (QueryKey.t, t) => t =
   (key, Query(map)) => {
     Query(map |> QueryMap.remove(key));

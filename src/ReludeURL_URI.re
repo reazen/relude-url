@@ -35,7 +35,7 @@ let make = (scheme, authority, path, query, fragment) => {
   fragment,
 };
 
-let makeNamed =
+let makeWithLabels =
     (
       ~scheme: Scheme.t,
       ~authority: option(Authority.t)=?,

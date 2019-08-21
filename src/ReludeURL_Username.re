@@ -7,7 +7,7 @@ type t =
 let make = str => Username(str);
 
 let parser: P.t(t) =
-  P.many1(P.anyCharNotIn([":"]))
+  P.many1(P.anyCharNotIn([":", "@"]))
   <#> Relude.Nel.toList
   <#> Relude.List.String.join
   <#> make;

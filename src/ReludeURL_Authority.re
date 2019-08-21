@@ -24,7 +24,7 @@ let make =
   port,
 };
 
-let makeNamed =
+let makeWithLabels =
     (
       ~userInfo: option(UserInfo.t)=?,
       ~hostname: Hostname.t,
@@ -38,6 +38,38 @@ let makeNamed =
 
 let fromHostname: Hostname.t => t =
   hostname => {userInfo: None, hostname, port: None};
+
+let fromHostnameAndPort: (Hostname.t, Port.t) => t =
+  (hostname, port) => {userInfo: None, hostname, port: Some(port)};
+
+let fromUsernameAndHostname: (Username.t, Hostname.t) => t =
+  (username, hostname) => {
+    userInfo: Some(UserInfo.fromUsername(username)),
+    hostname,
+    port: None,
+  };
+
+let fromCredentialsAndHostname: (Username.t, Password.t, Hostname.t) => t =
+  (username, password, hostname) => {
+    userInfo: Some(UserInfo.fromCredentials(username, password)),
+    hostname,
+    port: None,
+  };
+
+let fromUsernameHostnameAndPort: (Username.t, Hostname.t, Port.t) => t =
+  (username, hostname, port) => {
+    userInfo: Some(UserInfo.fromUsername(username)),
+    hostname,
+    port: Some(port),
+  };
+
+let fromCredentialsHostnameAndPort:
+  (Username.t, Password.t, Hostname.t, Port.t) => t =
+  (username, password, hostname, port) => {
+    userInfo: Some(UserInfo.fromCredentials(username, password)),
+    hostname,
+    port: Some(port),
+  };
 
 let userInfo: t => option(UserInfo.t) = ({userInfo}) => userInfo;
 
@@ -71,9 +103,9 @@ let withPortOpt: (option(Port.t), t) => t =
 
 let parser: P.t(t) =
   make
-  <$> P.opt(UserInfo.parser <* P.str("@"))
+  <$> P.opt(P.tries(UserInfo.parser <* P.str("@")))
   <*> Hostname.parser
-  <*> P.opt(P.str(":") *> Port.parser);
+  <*> P.opt(P.tries(P.str(":") *> Port.parser));
 
 let show: t => string =
   ({userInfo, hostname, port}) =>

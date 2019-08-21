@@ -14,7 +14,8 @@ let make = (username: Username.t, password: option(Password.t)) => {
   password,
 };
 
-let makeNamed = (~username: Username.t, ~password: option(Password.t)=?, ()) =>
+let makeWithLabels =
+    (~username: Username.t, ~password: option(Password.t)=?, ()) =>
   make(username, password);
 
 let fromUsername = (username: Username.t): t => {username, password: None};
@@ -38,7 +39,7 @@ let withPasswordOpt: (option(Password.t), t) => t =
   (password, userInfo) => {...userInfo, password};
 
 let parser: P.t(t) =
-  make <$> Username.parser <*> P.opt(P.str(":") *> Password.parser);
+  make <$> Username.parser <*> P.opt(P.tries(P.str(":") *> Password.parser));
 
 let show = ({username, password}) =>
   Username.show(username)
