@@ -1,5 +1,8 @@
 # relude-url
 
+[![CircleCI](https://img.shields.io/circleci/project/github/reazen/relude-url/master.svg)](https://circleci.com/gh/reazen/relude-url)
+[![npm](https://img.shields.io/npm/v/relude-url.svg)](https://www.npmjs.com/package/relude-url)
+
 URL utilities with Relude
 
 # Documentation
