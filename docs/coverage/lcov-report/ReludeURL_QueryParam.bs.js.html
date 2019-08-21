@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.14% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>23/28</span>
+        <span class='fraction'>26/28</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.14% </span>
+        <span class="strong">92.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>23/28</span>
+        <span class='fraction'>26/28</span>
       </div>
     </div>
     <p class="quiet">
@@ -129,14 +129,14 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,9 +165,9 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -236,10 +236,10 @@ function <span class="fstat-no" title="function not covered" >fromTuple1(</span>
 &nbsp;
 var parser = Curry._2(ReludeParse_Parser.Infix[/* &lt;*&gt; */7], Curry._2(ReludeParse_Parser.Infix[/* &lt;* */8], Curry._2(ReludeParse_Parser.Infix[/* &lt;$&gt; */1], make1, ReludeURL_QueryKey.parser), ReludeParse_Parser.str("=")), ReludeURL_QueryValue.parser);
 &nbsp;
-function <span class="fstat-no" title="function not covered" >show(</span>param) {
-  var key = <span class="cstat-no" title="statement not covered" >param[/* key */0];</span>
-<span class="cstat-no" title="statement not covered" >  return Curry._2(Relude_Extensions_List.$$String[/* joinWith */13], "&amp;", Relude_List.map((<span class="fstat-no" title="function not covered" >fu</span>nction (value) {</span>
-<span class="cstat-no" title="statement not covered" >                      return ReludeURL_QueryKey.show(key) + ("=" + ReludeURL_QueryValue.show(value));</span>
+function show(param) {
+  var key = param[/* key */0];
+  return Curry._2(Relude_Extensions_List.$$String[/* joinWith */13], "&amp;", Relude_List.map((function (value) {
+                      return ReludeURL_QueryKey.show(key) + ("=" + ReludeURL_QueryValue.show(value));
                     }))(param[/* values */1]));
 }
 &nbsp;
