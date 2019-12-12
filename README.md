@@ -18,6 +18,9 @@ A URI is broken up into several sub-component types, including `Scheme`, `Author
 
 ## Parsing
 
+[![GitHub CI](https://img.shields.io/github/workflow/status/reazen/relude-url/CI/master)](https://github.com/reazen/relude-url/actions)
+[![npm](https://img.shields.io/npm/v/relude-url//www.npmjs.com/package/relude-url)
+
 `ReludeURL` uses [ReludeParse](https://github.com/reazen/relude-parse) to parse URIs.  To run a URI parser, you use
 the standard convention for running a `ReludeParse` parser, like below:
 

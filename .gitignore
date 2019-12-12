@@ -7,3 +7,4 @@ node_modules/
 
 # Project files
 lib/
+/docs/coverage
