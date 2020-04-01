@@ -45,7 +45,7 @@ let show = ({username, password}) =>
   Username.show(username)
   ++ (password |> Relude.Option.fold("", pw => ":" ++ Password.show(pw)));
 
-module Show: BsAbstract.Interface.SHOW with type t = t = {
+module Show: BsBastet.Interface.SHOW with type t = t = {
   type nonrec t = t;
   let show = show;
 };

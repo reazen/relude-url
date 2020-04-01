@@ -28,7 +28,7 @@ let show = ({key, values}) => {
   |> Relude.List.String.joinWith("&");
 };
 
-module Show: BsAbstract.Interface.SHOW with type t = t = {
+module Show: BsBastet.Interface.SHOW with type t = t = {
   type nonrec t = t;
   let show = show;
 };
