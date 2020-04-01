@@ -1,6 +1,6 @@
 {
   "name": "relude-url",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "URL utilities with Relude",
   "repository": {
     "type": "git",
